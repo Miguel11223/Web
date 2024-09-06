@@ -5,27 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: larger;
+
+        }
+        .contenedor{
+            background-color: rgba(0, 208, 255, 0.484);
+        }
         .caja{
-            width: 70px;
-            height: 150px;
+            float:  right ;
+            width: 100px;
+            height: 100px;
             background-color: rebeccapurple;
-            border:  20px solid red;
+            border:  2px solid red;
             color:  yellow;
+            margin: 15px;
         }
         #caja2{
             position: relative;
             top: 50px;
             left: 50px;
         }
+        #caja4{
+            clear: left;
+        }
 
 
     </style>
 </head>
 <body>
-    <DIV class="caja" id="caja1">caja1</DIV>
+    <div class="contenedor"></div>
+    <p>Este es un ejemplo de texto </p>
     <DIV class="caja" id="caja2">caja2</DIV>
-    <DIV class="caja" id="caja3">caja3</DIV>
     <DIV class="caja" id="caja4">caja4</DIV>
-    <DIV class="caja" id="caja5">caja5</DIV>
 </body>
 </html>
