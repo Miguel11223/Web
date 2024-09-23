@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .grid-Container
+    {
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+        grid-template-columns: 40% 35% 25%;
+        grid-template-rows: 15% 70% 15%;
+        background-color: rgb(152, 252, 255);
+
+        grid-template-areas: "Encabezado Encabezado Barra2"
+                             "Barra Conte Barra2"
+                             "Piepa Piepa Piepa";
+    }
+    #Contenedor1
+    {
+        
+        margin: 5px;
+        padding: 3px;
+        border: 3px solid blue;
+        border-radius: 15px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        grid-area: Encabezado;
+        background-color: rgb(120, 177, 246);
+    }
+    #Contenedor2
+    {
+        margin: 5px;
+        padding: 3px;
+        border: 3px solid rgb(81, 81, 242);
+        border-radius: 15px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        grid-area: Barra;
+        background-color: rgb(154, 136, 235);
+    }
+    #Contenedor3 
+    {
+        grid-area: Conte;
+        background-color: bisque;
+    }
+    #Contenedor4 
+    {
+        grid-area: Piepa;
+        background-color: rgb(58, 189, 196);
+    }
+    #Contenedor5 
+    {
+        grid-area: Barra2;
+        background-color: rgb(0, 255, 136);
+    }
+    .grid
+    {
+        display: grid;
+        grid-template-areas:
+        'header header header header header' 
+        'menu menu main right right'
+        'footer footer main right  right'
+    }
+    .grid div
+    {
+        background-color: rgb(108, 108, 249);
+        border-style: solid;
+    }
+    .cajaflotante
+    {
+        border: 1px solid rebeccapurple;
+        border-radius: 15px;
+        float: left;
+        width:20%;
+        height: 20p;
+        margin: 8px;
+        text-align: center;
+        padding: 14px;
+        background-color: rgb(247, 204, 144);
+    }
+    .CajaFlotante
+    {
+        border: 1px solid rebeccapurple;
+        border-radius: 15px;
+
+        width: calc(100% - 20px);
+        height: calc((100% / 3 ) - 20px);
+        margin: 5px;
+        padding: 20px;
+        background-color: rgb(247, 204, 144); 
+    }
+    .CajaFlotante img
+    {
+        float: right;
+        width: 20vw;
+        height: 10vh;
+    }
+    .CajaFlotante2
+    {
+        border: 1px solid rebeccapurple;
+        border-radius: 15px;
+
+        width: 100%;  
+        height: 25%; 
+        border: 1px solid #000; 
+        overflow: hidden; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .CajaFlotante2 img
+    {
+
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    .cajaflex
+    {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        padding: 40px;
+    }
+    .imagen-hover {
+        width: 200px;
+        height: 90%;
+        transition: transform 0.5s ease; /* Transición suave */
+    }
+    .imagen-hover:hover {
+        transform: scale(1.1); /* Aumenta el tamaño de la imagen */
+        cursor: pointer; /* Cambia el cursor a una mano */
+    }
+    .imagen-hover2 {
+        width: 10%;
+        height: 10%;
+        transition: transform 0.5s ease; /* Transición suave */
+    }
+    .imagen-hover2:hover {
+        transform: scale(1.1); /* Aumenta el tamaño de la imagen */
+        cursor: pointer; /* Cambia el cursor a una mano */
+    }
+</style>
+<body>
+    <div class="grid-Container">
+        <div id="Contenedor1">
+            <div class="cajaFlotante">
+                <h3>Gatos</h3>
+            </div>
+            <div class="cajaflotante">
+                <h3>Leonardo Juarez</h3>
+            </div>
+            <div class="cajaflotante">
+                <h3>Miguel Davila</h3>
+            </div>
+        </div>
+        <div id="Contenedor2">
+            <h2>Gatos Famosos</h2>
+            <div class="CajaFlotante">
+
+                <h5>Garfi: El enfado personificado</h5>
+                <img src="Gato_Enfadado.JPG">
+            </div>
+            <div class="CajaFlotante"></div>
+            <div class="CajaFlotante"></div>
+
+        </div>
+        <div id="Contenedor3">Contenedor3</div>
+        <div id="Contenedor4">
+            <div class="cajaflex">
+            <div>
+                <a href="https://mascotafiel.com/gatos-mas-famosos-de-la-historia/">Enlace de gatos</a>
+
+            </div>
+                
+            </div>
+        </div>
+        <div id="Contenedor5">
+            
+            
+            
+            <div class="CajaFlotante2">
+                <a href="https://www.wikidex.net/wiki/Meowth" target="_blank" rel="noopener noreferrer">
+                    <img src="OIP.jfif" class="imagen-hover" alt="Meowth">
+                </a>
+            </div>
+            <div class="CajaFlotante2">
+                <a href="https://sabrinalabrujaadolescente.fandom.com/es/wiki/Salem_Saberhagen" target="_blank" rel="noopener noreferrer">
+                    <img src="Salem_Saberhagen.webp" class="imagen-hover" alt="Salem Saberhagen">
+                </a>
+            </div>
+            <div class="CajaFlotante2">
+                <a href="https://www.milenio.com/cultura/la-historia-de-garfield-el-gato-mas-famoso-de-la-television" target="_blank" rel="noopener noreferrer">
+                    <img src="R.jfif" class="imagen-hover" alt="Garfield">
+                </a>
+            </div>
+            <div class="CajaFlotante2">
+                <a href="https://es.wikipedia.org/wiki/Grumpy_Cat" target="_blank" rel="noopener noreferrer">
+                    <img src="miudth.jfif" class="imagen-hover" alt="Grumpy Cat">
+                </a>
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
