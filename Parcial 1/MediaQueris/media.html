@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+*{
+    box-sizing: content-box;
+    padding: 0;
+}
+.contenedor{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+}
+
+.hijos{
+    border: 1px;
+    background-color: antiquewhite;
+    flex-grow: 1;
+    text-align: center;
+}
+
+@media screen and (max-width:500px) {
+    .contenedor{
+        flex-direction: column;
+    }
+}
+</style>
+
+    
+</head>
+<body>
+    <div class="contenedor">
+        <div class="hijos">UNO</div>
+        <div class="hijos">DOS</div>
+        <div class="hijos">TRES</div>
+        <div class="hijos">CUATRO</div>
+        <div class="hijos">CINCO</div>
+        <div class="hijos">SEIS</div>
+
+
+
+
+    </div>
+</body>
+</html>
