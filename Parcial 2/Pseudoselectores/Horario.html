@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        table{
+
+        }
+        table td{
+            border: 2px solid navy;
+            border-collapse: collapse;
+        }
+        tbody >tr:nth-child(odd){
+
+            background-color: aquamarine;
+        }
+        tbody>tr:hover{
+            background-color: black;
+            color: wheat;
+        }
+
+        tbody>tr td:active{
+            background-color: blueviolet;
+            color: bisque;
+        }
+
+        @media screen and (max-width:500px){
+            table,tr,td,thead{
+                display: block;
+            }
+        }
+        tbody tr> td:first-child{
+            background-color: blue;
+            color:aquamarine;
+            text-aling:center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <table> 
+        <thead>
+            <tr>
+                <td> Materia</td>
+                <td> Lun</td>
+                <td> Mar</td>
+                <td> Mier</td>
+                <td> Jue</td>
+                <td> Vier</td>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr>
+                <td>Web</td>
+                <td>7-8</td>
+                <td>7-8</td>
+                <td>7-8</td>
+                <td>7-8</td>
+                <td>7-8</td>
+            </tr>
+            <tr>
+                <td>FIS</td>
+                <td></td>
+                <td>8-10</td>
+                <td></td>
+                <td>8-10</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>SO</td>
+                <td>12-2</td>
+                <td>10-11</td>
+                <td></td>
+                <td>10-11</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>FBD</td>
+                <td>11-12</td>
+                <td>11-12</td>
+                <td>11-12</td>
+                <td>11-12</td>
+                <td>11-12</td>
+            </tr>
+            <tr>
+                <td>Graf</td>
+                <td>2-3</td>
+                <td>2-3</td>
+                <td>2-3</td>
+                <td>2-3</td>
+                <td>2-3</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
