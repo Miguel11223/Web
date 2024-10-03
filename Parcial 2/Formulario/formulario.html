@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <style>
+        @media (max-width: 500px) {
+            .pure-form-aligned .pure-control-group {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .pure-form-aligned label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .pure-form-aligned .pure-controls {
+                text-align: center;
+            }
+
+            input[type="text"], input[type="number"], input[type="button"], input[type="submit"], input[type="reset"] {
+                width: 100%;
+                box-sizing: border-box; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <form action="URL" method="get" enctype="application/x-www-form-urlencoded" class="pure-form pure-form-aligned"> 
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="nom">Nombre</label>
+                <input type="text" name="nombre" id="nom" placeholder="Tu nombre">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="ape">Apellido</label>
+                <input type="text" name="apellido" id="ape" placeholder="Tu apellido">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="eda">Edad</label>
+                <input type="number" name="edad" id="eda" placeholder="Tu edad">
+            </div>
+
+            <div class="pure-controls">
+                <input type="button" value="JS" class="pure-button pure-button-primary">
+                <input type="submit" value="Enviar" class="pure-button pure-button-primary">
+                <input type="reset" value="Limpiar" class="pure-button">
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
