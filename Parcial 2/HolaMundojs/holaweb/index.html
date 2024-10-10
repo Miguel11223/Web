@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="./index.js"></script>
+</head>
+<body>
+    <button type="button" onclick="console.log('Hola mundo js')">Botón js</button>
+    <button type="button" onclick="pressionBoton()">Botón js</button>
+
+    <script>
+        window.onload = function () {
+            console.log('hola mundo body');
+        }
+        
+        function pressionBoton() {
+            console.log('hola mundo presion boton');
+
+            console.log(_.first([5, 4, 3, 2, 1]));
+
+            var log = _.bind(console.log, console);
+            _.delay(log, 1000, 'logged later');
+        }
+    </script>
+</body>
+</html>
