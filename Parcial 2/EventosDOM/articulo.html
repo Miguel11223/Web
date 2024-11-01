@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-image: url('espacio.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        #contenedor, #contenedor2 {
+            width: 60%;
+            margin: 5% auto;
+            padding: 20px;
+            background-color: rgba(70, 130, 180, 0.8);
+            color: #fff;
+            border-radius: 10px;
+            line-height: 1.75em;
+        }
+        #encabezado {
+            background-color: aquamarine;
+            border-radius: 15px;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        img {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin: 10px auto;
+        }
+        button {
+            margin: 20px auto;
+            display: block;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contenedor">
+        <div id="encabezado">
+            <h1>Teoría de vida más allá de la Tierra</h1>
+        </div>
+        <p>La búsqueda de vida extraterrestre se ha convertido en un foco principal de la astrobiología, una disciplina que estudia el potencial de vida en otros planetas y cuerpos celestes. Esta búsqueda incluye la investigación de planetas extrasolares (exoplanetas) que podrían tener condiciones similares a la Tierra.</p>
+        <p>Métodos de búsqueda:</p>
+        <ul>
+            <li>SETI (Search for Extraterrestrial Intelligence): Utiliza radiotelescopios para detectar señales de radio inusuales del espacio que podrían ser emitidas por civilizaciones avanzadas.</li>
+            <li>Descubrimiento de exoplanetas: Los científicos utilizan telescopios espaciales y terrestres para identificar planetas en zonas habitables de sus estrellas, donde las condiciones podrían ser adecuadas para la vida tal como la conocemos.</li>
+            <li>Exploración de Marte y lunas del sistema solar: Las misiones robóticas a Marte, como los rovers de la NASA, y estudios de lunas como Europa de Júpiter y Encélado de Saturno, buscan signos de vida microbiana pasada o presente.</li>
+        </ul>
+        <p>Implicaciones éticas y filosóficas: El descubrimiento de vida extraterrestre podría tener profundas implicaciones para nuestra comprensión del universo y nuestro lugar en él. Además, plantea cuestiones sobre cómo deberíamos interactuar con otras formas de vida inteligente.</p>
+        <img src="okaru.png" alt="Okaru">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipos de búsqueda</th>
+                    <th>Imagen de los tipos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Radiotelescopios</td>
+                    <td><img src="radiotelescopio.png" alt="Radiotelescopio"></td>
+                </tr>
+                <tr>
+                    <td>Telescopio</td>
+                    <td><img src="telescopio.jpg" alt="Telescopio"></td>
+                </tr>
+                <tr>
+                    <td>Marte</td>
+                    <td><img src="mar.jpg" alt="Marte"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="changeContent">Cambiar Contenido</button>
+    </div>
+
+    <div id="contenedor2">
+        <div id="encabezado">
+            <h2>Sustento de la teoría</h2>
+        </div>
+        <p>Más de 300 millones de mundos con condiciones similares a la Tierra se encuentran dispersos por la Vía Láctea. Un nuevo análisis concluye que aproximadamente la mitad de las estrellas similares al sol de la galaxia albergan mundos rocosos en zonas habitables donde el agua líquida podría acumularse o fluir sobre las superficies de los planetas.</p>
+        <p>Los astrónomos estimaron el número de estos planetas utilizando datos de la nave espacial Kepler de caza de planetas de la NASA. Durante nueve años, Kepler miró fijamente las estrellas y observó los breves destellos que se producían cuando los planetas en órbita borraban una parte de la luz de su estrella.</p>
+        <img src="kepler.jpg" alt="Kepler">
+    </div>
+
+    <script>
+        document.getElementById("changeContent").addEventListener('click', () => {
+            document.getElementById('contenedor').innerHTML = `
+                <div id="encabezado">
+                    <h1>Fantasmas </h1>
+                </div>
+                <p>La existencia de fantasmas ha sido un tema fascinante y controversial durante siglos. Aunque muchas personas afirman haber tenido experiencias paranormales, la ciencia no ha encontrado pruebas concluyentes que respalden la existencia de fantasmas.</p>
+                <p>Algunas explicaciones científicas sugieren que estos avistamientos pueden estar relacionados con fenómenos naturales y psicológicos. Por ejemplo, el efecto expectativa puede hacer que nuestro cerebro interprete sombras o ruidos normales como algo sobrenatural. También existe el fenómeno de la pareidolia, que nos lleva a ver patrones o rostros en objetos inanimados o sombras.</p>
+                <p>Además, ciertas condiciones ambientales pueden contribuir a estas experiencias, como cambios en los niveles de presión o alteraciones en el campo electromagnético que pueden afectar la percepción humana.</p>
+                <img src="fantasmas.jpg" alt="fantasmas">
+
+
+                `;
+        });
+    </script>
+
+</body>
+</html>
