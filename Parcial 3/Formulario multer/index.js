@@ -2,41 +2,97 @@ const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
-const { jsPDF } = require("jspdf");
-
-const doc = new jsPDF()
+const fs = require('fs');
+const { jsPDF } = require('jspdf');
+const { check, validationResult } = require('express-validator');
 
 const app = express();
 app.use(cors());
-
-const folder = path.join(__dirname+'/archivos/');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, folder)
+    destination: (req, file, cb) => {
+        const folder = path.join(__dirname, 'archivos');
+        if (!fs.existsSync(folder)) fs.mkdirSync(folder);
+        cb(null, folder);
     },
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now())
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}-${file.originalname}`);
+    },
+});
+
+const upload = multer({
+    storage,
+    fileFilter: (req, file, cb) => {
+        const allowedTypes = /jpeg|jpg|png|gif/; 
+        const mimeType = allowedTypes.test(file.mimetype);
+        const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+        if (mimeType && extName) {
+            return cb(null, true);
+        }
+        cb(new Error('Solo se permiten archivos de imagen (jpeg, jpg, png, gif).'));
+    },
+    limits: { fileSize: 5 * 1024 * 1024 }, 
+});
+
+const validateForm = [
+    check('nombre')
+        .isAlpha()
+        .withMessage('El nombre debe contener solo letras.')
+        .notEmpty()
+        .withMessage('El nombre es obligatorio.'),
+    check('apellido')
+        .isAlpha()
+        .withMessage('El apellido debe contener solo letras.')
+        .notEmpty()
+        .withMessage('El apellido es obligatorio.'),
+];
+
+app.post('/formulario', upload.single('archivo'), validateForm, (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errores: errors.array() });
     }
-})
 
-//const upload = multer( { dest:folder } );
-const upload = multer( {storage: storage} );
+    try {
+        const { nombre, apellido } = req.body;
 
-app.use(upload.single('archivo'));
+        if (!req.file) {
+            return res.status(400).json({ error: 'No se subió un archivo o el archivo no es válido.' });
+        }
 
-app.use(express.json());
-app.use(express.text());
-app.use(express.urlencoded( { extended : true } ));
+        const archivoPath = req.file.path;
 
-app.post('/formulario', (req, res) => {
-    console.log(req.body);
-    const doc = new jsPDF();
-    doc.text("Hello world! "+ req.body.nombre, 10, 10);
-    doc.save(path.join(__dirname+"/archivosgen/a4.pdf"));
-    res.sendFile(path.join(__dirname+"/archivosgen/a4.pdf"));
-})
+        const doc = new jsPDF();
+
+        doc.text(`Hola, ${nombre} ${apellido}`, 10, 10);
+
+        const imageData = fs.readFileSync(archivoPath, { encoding: 'base64' });
+        doc.addImage(`data:image/jpeg;base64,${imageData}`, 'JPEG', 10, 20, 50, 50);
+
+        const pdfFolder = path.join(__dirname, 'archivosgen');
+        if (!fs.existsSync(pdfFolder)) fs.mkdirSync(pdfFolder);
+        const pdfPath = path.join(pdfFolder, `${Date.now()}-output.pdf`);
+        fs.writeFileSync(pdfPath, doc.output());
+
+        res.sendFile(pdfPath);
+    } catch (error) {
+        console.error('Error al generar el PDF:', error.message);
+        res.status(500).send('Error al generar el PDF.');
+    }
+});
+
+app.use((err, req, res, next) => {
+    if (err instanceof multer.MulterError) {
+        return res.status(400).json({ error: err.message });
+    }
+    if (err) {
+        return res.status(400).json({ error: err.message });
+    }
+    next();
+});
 
 app.listen(8088, () => {
-    console.log('Servidor Express escuchando en el puerto 8088');
+    console.log('Servidor escuchando en el puerto 8088');
 });
